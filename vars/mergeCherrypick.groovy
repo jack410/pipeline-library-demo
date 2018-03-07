@@ -1,5 +1,5 @@
 def call(String ENV = 'master') {
-    switch("${ENV}") {
+    switch(ENV) {
                 case "test": 
                 git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
                     break; 
