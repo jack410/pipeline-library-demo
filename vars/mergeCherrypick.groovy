@@ -1,4 +1,4 @@
-def call(String ENV = 'master') {
+def call() {
     switch(ENV) {
                 case "test": 
                 git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
