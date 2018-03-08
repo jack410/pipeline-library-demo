@@ -5,9 +5,9 @@ def call(String name) {
                     break; 
                 case "validation": 
                 echo "Hello, ${name}."
-                //git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
-                //git branch: "validation", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
-                //sh 'git branch'
+                git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
+                git branch: "validation", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
+                sh 'git branch'
                 if (CID) {
                     sh '''
                     #!/bin/bash
