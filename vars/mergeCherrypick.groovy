@@ -14,7 +14,7 @@ def call(String name, String module, String merge, String cid) {
                 if (cid) {
                     sh '''
                     #!/bin/bash
-                    echo $cid
+                    echo ${cid}
                     arr=$(echo $cid|tr "," "\n")
                     for x in $arr; do
                     git cherry-pick --strategy=recursive -X theirs $x 
