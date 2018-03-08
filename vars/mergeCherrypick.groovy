@@ -4,7 +4,10 @@ def call(String name, String module, String merge, String cid) {
                 git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
                     break; 
                 case "validation": 
-                echo "Hello, ${name}."
+                echo "env is ${name}."
+                echo "module is ${module}"
+                echo "merge is ${merge}"
+                echo "cid is ${cid}"    
                 git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
                 git branch: "validation", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
                 sh 'git branch'
