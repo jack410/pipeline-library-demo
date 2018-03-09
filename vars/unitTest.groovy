@@ -1,3 +1,1 @@
-def call(Map config) {
-	println $config.name
-}
+def call() { echo "starting unit test......" }
