@@ -15,6 +15,7 @@ def call(String env, String module, version = '') {
 	git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
 	commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
     commitId = commitId.trim()
+    return commitId
     // IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
 
     // switch(env) {
