@@ -1,11 +1,11 @@
 def call(String env, String module) {
-	if (ENV == 'test') {
+	if (env == 'test') {
             BRANCH = 'master'
         } 
-        else if (ENV == 'validation') {
+        else if (env == 'validation') {
             BRANCH = 'validation'
         }
-        else if (ENV == 'prod') {
+        else if (env == 'prod') {
             BRANCH = 'release'
         }
     switch(env) {
