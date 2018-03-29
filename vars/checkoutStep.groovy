@@ -12,7 +12,7 @@ def call(String env, String module) {
     	case "test":
     	echo "env is ${env}."
         echo "module is ${module}"
-    	// git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
+    	git branch: "master", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
      //    commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
      //    commitId = commitId.trim()
         // IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
