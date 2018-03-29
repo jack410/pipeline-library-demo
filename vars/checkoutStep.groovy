@@ -1,4 +1,4 @@
-def call(String env, String module, String version) {
+def call(String env, String module) {
 	if (ENV == 'test') {
             BRANCH = 'master'
         } 
@@ -25,7 +25,7 @@ def call(String env, String module, String version) {
         git branch: "${BRANCH}", credentialsId: 'xsio', url: "git@github.com:xsio/${MODULE}.git"
         commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
         commitId = commitId.trim()
-        IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${version}"
+        IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
         break;
     }
 }
