@@ -13,8 +13,8 @@ def call(String env, String module, version = '') {
  	def branch = env2branch[env] ?: 'master'
  	echo "env is ${env}."
 	git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
-	// commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
- //    commitId = commitId.trim()	
+	commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
+    commitId = commitId.trim()	
 
     // switch(env) {
     // 	case "test":
@@ -37,5 +37,5 @@ def call(String env, String module, version = '') {
     //     commitId = commitId.trim()
     //     // IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
     //     break;
-    }
+    // }
 }
