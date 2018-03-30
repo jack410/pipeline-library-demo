@@ -25,7 +25,7 @@ def call(String env, String module, version = '') {
                 export HOME=/opt/hudson
                 . ${HOME}/.bashrc
                 ./gradlew clean
-                echo ${env}
+                echo "${env}"
                 ./gradlew bootRepackage -Dgrails.env=${env}
             '''
         }
