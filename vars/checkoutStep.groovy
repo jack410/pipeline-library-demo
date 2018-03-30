@@ -1,7 +1,7 @@
 def call(String env, String module, version = '') {
 
-		def env.REGISTRY_SNAPSHOT = "nexus-snapshot.xsio.cn"
-		def IMAGE_PATH = "${env}/${module}-${module}"
+		def repo = "nexus-snapshot.xsio.cn"
+		def imagePath = "${env}/${module}-${module}"
 
         def env2branch = [test: 'master', validation: 'validation', prod: 'release']
 
@@ -12,7 +12,7 @@ def call(String env, String module, version = '') {
         echo commitId
         if (version) {
         	commitId = version
-        	env.REGISTRY_SNAPSHOT = "nexus-release.xsio.cn"
+        	repo = "nexus-release.xsio.cn"
         }
-        IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
+        IMAGE = "${repo}/${imagePath}:${commitId}"
 }
