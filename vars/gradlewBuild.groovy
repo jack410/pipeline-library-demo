@@ -7,12 +7,6 @@ def call(String env, String module, version = '') {
         def JAR = "${module}-latest.jar"
         
     node {
-    	stage ('clone') {
-    		$class: 'GitSCM'
-    		branches: scm.branches
-    		echo branches
-    		checkout scm
-    	}
     	stage ('checkout') {
 
 	        git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
