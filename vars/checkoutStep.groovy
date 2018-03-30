@@ -8,11 +8,14 @@ def call(String env, String module, version = '') {
         
     node {
     	stage ('clone') {
+    		$class: 'GitSCM'
+    		branches: scm.branches
+    		echo branches
     		checkout scm
     	}
     	stage ('checkout') {
 
-	        git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:jack410/${module}.git"
+	        git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
 	        commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
 	        commitId = commitId.trim()
 	        if (version) {
