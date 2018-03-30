@@ -7,9 +7,12 @@ def call(String env, String module, version = '') {
         def JAR = "${module}-latest.jar"
         
     node {
+    	stage ('clone') {
+    		checkout scm
+    	}
     	stage ('checkout') {
 
-	        git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:xsio/${module}.git"
+	        git branch: "${branch}", credentialsId: 'xsio', url: "git@github.com:jack410/${module}.git"
 	        commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
 	        commitId = commitId.trim()
 	        if (version) {
