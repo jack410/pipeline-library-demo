@@ -26,7 +26,10 @@ def call(String env, String module, version = '') {
                 . ${HOME}/.bashrc
                 ./gradlew clean
                 echo "${env}"
-                ./gradlew bootRepackage -Dgrails.env=${env}
+                echo ${env}
+                echo $env
+                echo env
+                ./gradlew bootRepackage -Dgrails.env=test
             '''
         }
         stage ('package'){
