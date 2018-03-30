@@ -29,7 +29,7 @@ def call(String env, String module, version = '') {
                 echo ${env}
                 echo $env
                 echo env
-                ./gradlew bootRepackage -Dgrails.env=test
+                ./gradlew bootRepackage -Dgrails.env=$env
             """
         }
         stage ('package'){
