@@ -7,5 +7,5 @@ def call(String env, String module, version = '') {
         commitId = sh returnStdout: true, script: 'git rev-parse HEAD'
         commitId = commitId.trim()
         echo commitId
-        // IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
+        IMAGE = "${env.REGISTRY_SNAPSHOT}/${IMAGE_PATH}:${commitId}"
 }
