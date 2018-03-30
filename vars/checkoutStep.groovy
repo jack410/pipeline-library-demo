@@ -20,7 +20,7 @@ def call(String env, String module, version = '') {
 	        echo IMAGE
 	    }
 	    stage ('build'){
-           sh '''
+           sh """
                 #bypass jenkins $HOME bug
                 export HOME=/opt/hudson
                 . ${HOME}/.bashrc
@@ -30,7 +30,7 @@ def call(String env, String module, version = '') {
                 echo $env
                 echo env
                 ./gradlew bootRepackage -Dgrails.env=test
-            '''
+            """
         }
         stage ('package'){
             sh """
