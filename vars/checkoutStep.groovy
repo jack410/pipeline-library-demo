@@ -25,10 +25,6 @@ def call(String env, String module, version = '') {
                 export HOME=/opt/hudson
                 . ${HOME}/.bashrc
                 ./gradlew clean
-                echo "${env}"
-                echo ${env}
-                echo $env
-                echo env
                 ./gradlew bootRepackage -Dgrails.env=$env
             """
         }
@@ -40,6 +36,9 @@ def call(String env, String module, version = '') {
                 docker push ${IMAGE}
                 docker rmi ${IMAGE} || echo 
             """
+        }
+        stage ('deploy'){
+            build job: "deploy_${module}_${env}", parameters: [string(name: 'TAG', value: commitId), string(name: 'IMAGE_PATH', value: IMAGE_PATH)]
         }
 
     }    
