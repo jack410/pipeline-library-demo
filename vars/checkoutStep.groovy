@@ -38,7 +38,7 @@ def call(String env, String module, version = '') {
             """
         }
         stage ('deploy'){
-            build job: "deploy_${module}_${env}", parameters: [string(name: 'TAG', value: commitId), string(name: 'IMAGE_PATH', value: IMAGE_PATH)]
+            build job: "deploy_${module}_${env}", parameters: [string(name: 'TAG', value: commitId), string(name: 'IMAGE_PATH', value: imagePath)]
         }
 
     }    
