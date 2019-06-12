@@ -34,13 +34,5 @@ pipeline {
         sh "docker rmi ${IMAGE_PATH} || echo"
       }
     }
-    stage ('deploy'){
-      steps {
-        script {
-          job = deploy_k8s == 'true' ? 'deploy_k8s' : 'deploy'
-        }
-        build job: "$job/$env.BRANCH_NAME", parameters: [string(name: 'IMAGE_TAG', value: tag), string(name: 'SERVICE_NAMES', value: repoName)]
-      }
-    }
   }
 }
